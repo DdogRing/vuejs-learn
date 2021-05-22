@@ -36,32 +36,12 @@
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
 /******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -79,46 +59,64 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
-/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/main.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ "./src/info.js":
-/*!*********************!*\
-  !*** ./src/info.js ***!
-  \*********************/
-/*! exports provided: name, age, length */
+/******/ ([
+/* 0 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"name\", function() { return name; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"age\", function() { return age; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"length\", function() { return length; });\nconst name = 'ddogring'\r\nconst age = 22\r\nconst length = 18\r\n\r\n\n\n//# sourceURL=webpack:///./src/info.js?");
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_info__ = __webpack_require__(2);
+// 1、使用commonjs的模块化规范
+const {add, mul} = __webpack_require__(1)
+
+console.log(add(20, 30))
+console.log(mul(20, 30))
+
+// 2、使用ES6的模块化规范
+
+
+
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["c" /* name */])
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["a" /* age */])
+console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["b" /* length */])
 
 /***/ }),
-
-/***/ "./src/main.js":
-/*!*********************!*\
-  !*** ./src/main.js ***!
-  \*********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _info__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./info */ \"./src/info.js\");\n// 1、使用commonjs的模块化规范\r\nconst {add, mul} = __webpack_require__(/*! ./mathUtils.js */ \"./src/mathUtils.js\")\r\n\r\nconsole.log(add(20, 30))\r\nconsole.log(mul(20, 30))\r\n\r\n// 2、使用ES6的模块化规范\r\n\r\n\r\n\r\nconsole.log(_info__WEBPACK_IMPORTED_MODULE_0__[\"name\"])\r\nconsole.log(_info__WEBPACK_IMPORTED_MODULE_0__[\"age\"])\r\nconsole.log(_info__WEBPACK_IMPORTED_MODULE_0__[\"length\"])\n\n//# sourceURL=webpack:///./src/main.js?");
-
-/***/ }),
-
-/***/ "./src/mathUtils.js":
-/*!**************************!*\
-  !*** ./src/mathUtils.js ***!
-  \**************************/
-/*! no static exports found */
+/* 1 */
 /***/ (function(module, exports) {
 
-eval("function add(num1, num2) {\r\n    return num1 + num2;\r\n}\r\n\r\nfunction mul(num1, num2) {\r\n    return num1 * num2;\r\n}\r\n\r\nmodule.exports = {\r\n    add,\r\n    mul\r\n}\n\n//# sourceURL=webpack:///./src/mathUtils.js?");
+function add(num1, num2) {
+    return num1 + num2;
+}
+
+function mul(num1, num2) {
+    return num1 * num2;
+}
+
+module.exports = {
+    add,
+    mul
+}
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const name = 'ddogring'
+/* harmony export (immutable) */ __webpack_exports__["c"] = name;
+
+const age = 22
+/* harmony export (immutable) */ __webpack_exports__["a"] = age;
+
+const length = 18
+/* harmony export (immutable) */ __webpack_exports__["b"] = length;
+
+
+
 
 /***/ })
-
-/******/ });
+/******/ ]);
