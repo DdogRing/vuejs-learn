@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>按钮1</button>
+		<button>按钮2</button>
+		<button>按钮3</button>
+		
+		<script>
+			
+			var btns = document.getElementsByTagName('button');
+			for(var i = 0;i < btns.length;i++) {
+				btns[i].addEventListener('click', function() {
+					console.log('第' + i + '个按钮点击');
+				})
+			}
+			
+			// 1、情况一：ES5中没有使用闭包(错误的方式)
+			i = 0;
+			{
+				btns[i].addEventListener('click', function() {
+					console.log('第' + i + '个按钮点击');
+				})
+				
+				btns[i].addEventListener('click', function() {
+					console.log('第' + i + '个按钮点击');
+				})
+				
+				btns[i].addEventListener('click', function() {
+					console.log('第' + i + '个按钮点击');
+				})
+			}
+			
+			// 2、情况二：ES5中使用闭包
+			var btns = document.getElementsByTagName('button');
+			for(var i = 0;i < btns.length;i++) {
+				(function(i) {
+					btns[i].addEventListener('click', function() {
+						console.log('第' + i + '个按钮点击');
+					})
+				})(i)
+			}
+			
+			i = 0;
+			function(i) {
+				btns[i].addEventListener('click', function() {
+					console.log('第' + i + '个按钮点击');
+				})
+			}(0)
+			
+			function(i) {
+				btns[i].addEventListener('click', function() {
+					console.log('第' + i + '个按钮点击');
+				})
+			}(1)
+			
+			function(i) {
+				btns[i].addEventListener('click', function() {
+					console.log('第' + i + '个按钮点击');
+				})
+			}(2)
+			
+		</script>
+	</body>
+</html>
