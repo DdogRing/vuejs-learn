@@ -7,7 +7,6 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './dist'),
     },
-
     module: {
         rules: [
             {
@@ -53,7 +52,21 @@ module.exports = {
                         presets: ['es2015']
                     }
                 }
+            },
+            {
+                test: /\.vue$/,
+                use: {
+                    loader: 'vue-loader'
+                }
             }
         ]
+    },
+    resolve: {
+        // alias: 别名
+        alias: {
+            // 指定vue使用的版本
+            'vue$': 'vue/dist/vue.esm.js'
+        },
+        extensions: ['.js', '.css', '.vue']
     }
 }

@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "dist/";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 2);
@@ -562,34 +562,55 @@ function updateLink (link, options, obj) {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_info__ = __webpack_require__(4);
-// 1、使用commonjs的模块化规范
-const {add, mul} = __webpack_require__(3)
 
-console.log(add(20, 30))
-console.log(mul(20, 30))
+
+var _info = __webpack_require__(3);
+
+// 1、使用commonjs的模块化规范
+var _require = __webpack_require__(4),
+    add = _require.add,
+    mul = _require.mul;
+
+console.log(add(20, 30));
+console.log(mul(20, 30));
 
 // 2、使用ES6的模块化规范
 
 
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["c" /* name */])
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["a" /* age */])
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info__["b" /* length */])
+console.log(_info.name);
+console.log(_info.age);
+console.log(_info.length);
 
 // 3、依赖css文件
-__webpack_require__(5)
+__webpack_require__(5);
 
 // 4、依赖less文件
-__webpack_require__(10)
-document.writeln('<h2>张三!</h2>')
+__webpack_require__(10);
+document.writeln('<h2>张三!</h2>');
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var name = exports.name = 'ddogring';
+var age = exports.age = 22;
+var length = exports.length = 18;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 function add(num1, num2) {
     return num1 + num2;
@@ -600,26 +621,9 @@ function mul(num1, num2) {
 }
 
 module.exports = {
-    add,
-    mul
-}
-
-/***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-const name = 'ddogring'
-/* harmony export (immutable) */ __webpack_exports__["c"] = name;
-
-const age = 22
-/* harmony export (immutable) */ __webpack_exports__["a"] = age;
-
-const length = 18
-/* harmony export (immutable) */ __webpack_exports__["b"] = length;
-
-
-
+    add: add,
+    mul: mul
+};
 
 /***/ }),
 /* 5 */
@@ -713,9 +717,9 @@ module.exports = function escape(url) {
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__.p + "9c17233f52a149f48f91c7f9ceb3cd44.jpg";
+module.exports = "dist/img/001.9c17233f.jpg";
 
 /***/ }),
 /* 9 */
