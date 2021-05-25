@@ -8,3 +8,7 @@ new Vue({
   el: '#app',
   render: h => h(App)
 })
+
+// 那么.vue文件中的template是谁处理了？
+// 是由vue-template-compiler
+// render -> vdom -UI
