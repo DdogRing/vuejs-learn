@@ -1,7 +1,9 @@
 // 动态获取path
 const path = require('path')
-
 const webpack = require('webpack')
+const HtmlWebpackPlugins = require('html-webpack-plugin')
+const  UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin')
+
 
 module.exports = {
     entry: './src/main.js',
@@ -37,8 +39,7 @@ module.exports = {
                             // 当加载的图片，小于limit时，会将图片编译成Base64字符串的形式
                             // 当加载的图片，大于limit时，需要使用file-loader模块进行加载
                             limit: 26000,
-                            name: '[name].[hash:8].[ext]',
-                            publicPath: 'dist/img/'
+                            name: './img/[name].[hash:8].[ext]'
                         }
                     }
                 ]
@@ -72,6 +73,17 @@ module.exports = {
         extensions: ['.js', '.css', '.vue']
     },
     plugins: [
-        new webpack.BannerPlugin('最终版权归aaa所有')
-    ]
+        // 版权
+        new webpack.BannerPlugin('最终版权归aaa所有'),
+        // 将html打包入dist包
+        new HtmlWebpackPlugins({
+            template: 'index.html'
+        }),
+        // 压缩js文件
+        // new UglifyjsWebpackPlugin()
+    ],
+    devServer: {
+        contentBase: './dist',
+        inline: true
+    }
 }
