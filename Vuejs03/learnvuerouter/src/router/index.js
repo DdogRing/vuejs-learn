@@ -3,8 +3,17 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 
-import Home from '../components/Home'
-import About from '../components/About'
+// import Home from '../components/Home'
+// import About from '../components/About'
+// import User from '../components/User'
+
+// 路由懒加载
+const Home = () => import('../components/Home')
+const About = () => import('../components/About')
+const User = () => import('../components/User')
+const HomeNews = () => import('../components/HomeNews')
+const HomeMessage = () => import('../components/HomeMessage')
+const Profile = () => import('../components/Profile')
 
 // 1、通过Vue.use(插件)，安装插件
 Vue.use(Router)
@@ -21,14 +30,40 @@ export default new Router({
     {
       path: '/home',
       name: 'Home',
+      children: [
+        {
+          path: '',
+          redirect: 'news'
+        },
+        {
+          path: 'news',
+          name: 'HomeNews',
+          component: HomeNews
+        },
+        {
+          path: 'message',
+          name: 'HomeMessage',
+          component: HomeMessage
+        }
+      ],
       component: Home
     },
     {
       path: '/about',
       name: 'about',
       component: About
+    },
+    {
+      path: '/user/:userId',
+      name: 'User',
+      component: User
+    },
+    {
+      path: '/profile',
+      component: Profile
     }
   ],
   // 更改为history模式 默认为hash
-  mode: "history"
+  mode: "history",
+  linkActiveClass: 'active'
 })
