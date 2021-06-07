@@ -57,9 +57,9 @@ export default {
 }
 </style>
 
-
 <style>
   .active {
     color: #f00;
   }
 </style>
+
